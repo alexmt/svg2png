@@ -18,6 +18,25 @@
   </p>
 
   <p><input type="submit" value="Render"/></p>
+  <p><input id="renderBase64" type="submit" value="Render Base 64"/></p>
+  <img id="embeddedImage" alt="Embedded Image">
 </form>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#renderBase64").on("click", function() {
+            $.ajax({
+                type: "POST",
+                url: "/rasterize",
+                headers: { "HTTP_X_ACCEPT_ENCODING" : "" },
+                data: $("form").serialize(),
+                success: function(data) {
+                    $("#embeddedImage").attr("src", "data:image/png;base64," + data);
+                }
+            });
+            return false;
+        });
+    });
+</script>
 </body>
 </html>
