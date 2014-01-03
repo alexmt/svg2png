@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rasterizer</title>
+</head>
+<body>
+<form action="/rasterize" method="post">
+  <p>
+    <textarea name="svg" cols="80" rows="20">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
+  <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="red"/>
+</svg>
+    </textarea>
+  </p>
+  <p>
+    <input type="text" name="w" size="3" value="500"/> x
+    <input type="text" name="h" size="3" value="500">
+  </p>
+
+  <p><input type="submit" value="Render"/></p>
+</form>
+</body>
+</html>
