@@ -49,10 +49,11 @@ public class RasterizerServlet extends HttpServlet {
         outputStream = new Base64OutputStream(resp.getOutputStream());
       } else {
         outputStream = resp.getOutputStream();
-      }
+      }      
       transcoder.transcode(
           new TranscoderInput(new ByteArrayInputStream(data.getBytes("UTF-8"))),
           new TranscoderOutput(outputStream));
+      outputStream.close();
       resp.setStatus(HttpServletResponse.SC_OK);
     } catch (Exception e) {
       resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
