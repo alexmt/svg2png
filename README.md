@@ -1,4 +1,4 @@
 svg2png
 =======
 
-A simple web service which converts intpu SVG into PNG.
+A simple web service which converts input SVG into PNG.
